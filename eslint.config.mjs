@@ -4,6 +4,6 @@ import pluginJs from "@eslint/js";
 
 export default [
   {languageOptions: { globals: globals.browser }},
-  {ignores: ["js/__tests__", "dist","webpack.config.js"]},
+  {ignores: ["js/__tests__", "dist","webpack.config.js","jest.config.js"]},
   pluginJs.configs.recommended,
 ];
