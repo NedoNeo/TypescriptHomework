@@ -12,12 +12,9 @@ export default class Cart {
     }
 
     getPrice(): number {
-        const massiveItems: Buyable[] = this.items;
-        let totalprice: number = 0;
-        massiveItems.forEach(item => {
-            totalprice += item.price;
-        })
-        return totalprice;
+       return  this.items.reduce((acc: number, item) => {
+            return acc + item.price;
+        }, 0)
     }
 
     getPriceWithDiscont(discont: number): number {
@@ -26,12 +23,7 @@ export default class Cart {
     }
 
     deleteById(id: number): void {
-        this._items.forEach(item => {
-            if(item.id === id) {
-                 this._items.splice(this._items.indexOf(item),1);
-                
-            }
-        })
+        this._items = this._items.filter(item => item.id!== id);
     }
 
 
